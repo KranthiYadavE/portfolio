@@ -11,7 +11,7 @@ export function Experience() {
       </div>
 
       <ol className="divide-y divide-line">
-        {experience.map((job) => (
+        {experience.filter((job) => job.company.trim()).map((job) => (
           <li key={job.company} className="grid gap-6 py-10 lg:grid-cols-[0.42fr_1fr]">
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-faint">

@@ -2,8 +2,8 @@ import { projects } from "@/lib/data";
 import { ArrowUpRight } from "./Icons";
 
 export function Projects() {
-  const featured = projects.filter((p) => p.featured);
-  const rest = projects.filter((p) => !p.featured);
+  const featured = projects.filter((p) => p.featured && p.title.trim());
+  const rest = projects.filter((p) => !p.featured && p.title.trim());
 
   return (
     <section id="projects" className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
@@ -29,7 +29,7 @@ export function Projects() {
             </div>
             <h3 className="display mt-4 text-3xl text-foreground">{project.title}</h3>
             <p className="mt-4 text-[15px] leading-relaxed text-muted">{project.description}</p>
-            {project.points && (
+            {project.points && project.points.length > 0 && (
               <ul className="mt-5 space-y-2 text-sm text-muted">
                 {project.points.map((point) => (
                   <li key={point} className="flex gap-2">
