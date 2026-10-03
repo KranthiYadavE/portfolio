@@ -20,13 +20,13 @@ const instrument = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Kranthi Kumar Elupula — Generative AI Engineer",
+  title: "Kranthi Kumar Elupula — AI Engineer",
   description:
-    "Portfolio of Kranthi Kumar Elupula. Generative AI Engineer building production RAG, GPU inference, and ML systems. Ex-Accenture on Amazon. MS CS, Texas A&M–Corpus Christi.",
+    "AI Engineer / Software Engineer in Charlotte, NC. Multi-agent systems, RAG, and production backends. Cloud Nest IT, Aviva, Amazon, Cyient. MS CS, Texas A&M–Corpus Christi.",
   openGraph: {
-    title: "Kranthi Kumar Elupula — Generative AI Engineer",
+    title: "Kranthi Kumar Elupula — AI Engineer",
     description:
-      "Production RAG, GPU inference, and ML systems. Open to Software Engineer and ML Engineer roles.",
+      "Multi-agent systems, RAG pipelines, and production ML backends. Open to AI Engineer and Software Engineer roles.",
     type: "website",
   },
 };

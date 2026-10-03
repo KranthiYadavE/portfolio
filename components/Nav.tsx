@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { profile } from "@/lib/data";
+import { assetPath } from "@/lib/paths";
 import { MenuIcon } from "./Icons";
 
 const links = [
@@ -45,7 +47,15 @@ export function Nav() {
             </a>
           ))}
           <a
-            href="mailto:kranthiyadav1997@gmail.com"
+            href={assetPath(profile.resume)}
+            target="_blank"
+            rel="noreferrer"
+            className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-foreground"
+          >
+            Resume
+          </a>
+          <a
+            href={`mailto:${profile.email}`}
             className="rounded-full bg-acid px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] text-acid-ink transition-opacity hover:opacity-85"
           >
             Hire me
@@ -76,7 +86,16 @@ export function Nav() {
               </a>
             ))}
             <a
-              href="mailto:kranthiyadav1997@gmail.com"
+              href={assetPath(profile.resume)}
+              target="_blank"
+              rel="noreferrer"
+              onClick={() => setOpen(false)}
+              className="font-mono text-sm uppercase tracking-[0.18em] text-muted"
+            >
+              Resume
+            </a>
+            <a
+              href={`mailto:${profile.email}`}
               className="w-fit rounded-full bg-acid px-4 py-2 font-mono text-[11px] uppercase tracking-[0.16em] text-acid-ink"
             >
               Hire me

@@ -265,6 +265,7 @@ export function AdminApp() {
           <Field label="Email" value={data.profile.email} onChange={(email) => setData({ ...data, profile: { ...data.profile, email } })} />
           <Field label="GitHub" value={data.profile.github} onChange={(github) => setData({ ...data, profile: { ...data.profile, github } })} />
           <Field label="LinkedIn" value={data.profile.linkedin} onChange={(linkedin) => setData({ ...data, profile: { ...data.profile, linkedin } })} />
+          <Field label="Resume URL" value={data.profile.resume} onChange={(resume) => setData({ ...data, profile: { ...data.profile, resume } })} />
           <Field label="Headline" multiline value={data.profile.headline} onChange={(headline) => setData({ ...data, profile: { ...data.profile, headline } })} />
           <Field label="About" multiline value={data.profile.summary} onChange={(summary) => setData({ ...data, profile: { ...data.profile, summary } })} />
           <div className="grid gap-4 sm:grid-cols-2">

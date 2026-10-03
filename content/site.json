@@ -2,240 +2,155 @@
   "profile": {
     "name": "Kranthi Kumar Elupula",
     "shortName": "Kranthi",
-    "title": "Generative AI Engineer",
+    "title": "AI Engineer / Software Engineer",
     "location": "Charlotte, North Carolina",
     "email": "kranthiyadav1997@gmail.com",
     "github": "https://github.com/KranthiYadavE",
     "linkedin": "https://www.linkedin.com/in/kranthikumar333/",
-    "headline": "I build ML systems that run in production — RAG pipelines, GPU inference, and backend platforms that hold up under real traffic.",
-    "summary": "Right now at Cloud Nest IT I design RAG systems over clinical documents, fine-tune models for pharmacovigilance, and ship multi-agent workflows with FastAPI, Docker, and Kubernetes. Before that I kept fraud models honest at 1,200 req/sec, then spent years on Amazon's e-commerce billing stack through Accenture. MS CS, Texas A&M–Corpus Christi."
+    "resume": "/KranthiKumar_AIEngineer.pdf",
+    "headline": "AI Engineer building multi-agent systems, RAG pipelines, and production backends — LangGraph, pgvector, and GPU inference that hold up under real traffic.",
+    "summary": "At Cloud Nest IT I own planning and memory agents in a five-agent financial advisory platform on LangGraph, with RAG over ~50k compliance PDFs, LoRA model routing, and PII/DLP guards in front of ~200 advisors. Before that I shipped data platforms at Aviva, Amazon (AWS HoneyCode), and Cyient. MS Computer Science, Texas A&M–Corpus Christi."
   },
   "metrics": [
-    {
-      "value": "500K+",
-      "label": "clinical docs in RAG",
-      "detail": "sub-3s semantic search"
-    },
-    {
-      "value": "1,200",
-      "label": "predictions / sec",
-      "detail": "P99 under 300ms"
-    },
-    {
-      "value": "5M",
-      "label": "monthly shoppers",
-      "detail": "Amazon billing platform"
-    },
-    {
-      "value": "Ace",
-      "label": "Award at Accenture",
-      "detail": "critical memory leak"
-    }
+    { "value": "50K", "label": "compliance PDFs in RAG", "detail": "12s → under 3s retrieval" },
+    { "value": "0.91", "label": "RAGAS faithfulness", "detail": "BM25 + pgvector rerank" },
+    { "value": "30%", "label": "inference cost cut", "detail": "~10k requests / day" },
+    { "value": "99.9%", "label": "uptime after OOM fix", "detail": "AWS HoneyCode pipeline" }
   ],
   "experience": [
     {
       "company": "Cloud Nest IT",
-      "role": "Generative AI Engineer",
-      "dates": "Jan 2026 — Present",
-      "location": "Austin, TX",
+      "role": "AI Engineer",
+      "dates": "Jul 2025 — Present",
+      "location": "Charlotte, NC",
       "bullets": [
-        "Built an end-to-end RAG pipeline with LangChain and Pinecone over 500K+ clinical documents, with sub-3 second search and 94% reviewer-validated relevance.",
-        "Fine-tuned a GPT-4-class model with LoRA/PEFT on 18 months of clinical data, lifting domain terminology accuracy by 31% in pharmacovigilance reports.",
-        "Shipped a LlamaIndex multi-agent layer with tool-calling that cut medical affairs turnaround time by 40% on multi-step literature review.",
-        "Enforced HIPAA/FDA output checks with Guardrails AI (87% fewer non-compliant responses) and deployed FastAPI inference on AKS at 99.7% uptime."
+        "Own the Planning Agent and Redis-backed Memory Agent in a five-agent financial advisory platform on LangGraph — conditional gates route advisor queries so simple lookups skip expensive reasoning agents.",
+        "Built the RAG pipeline: chunked ~50k compliance PDFs into overlapping 512-token segments, embedded them with sentence-transformers into pgvector, and added BM25 reranking — retrieval latency from 12s to under 3s with a RAGAS faithfulness score of 0.91.",
+        "Trained a LoRA routing classifier (PyTorch, Hugging Face) that sends simple lookups to a smaller LLM and complex reasoning to GPT-4o, cutting monthly inference cost by 30% across ~10k daily requests.",
+        "Added a PII-masking and DLP layer (regex + NER + Pydantic) between agents and the API — rejected 4% of raw LLM outputs with hallucinated or sensitive data before they reached ~200 advisors.",
+        "Instrumented all five agents with OpenTelemetry (span per tool call and LLM call) and Prometheus token/latency p95/p99 counters, plus RAGAS + pytest trace replay in CI on every GitHub PR."
       ]
     },
     {
-      "company": "Axitemus",
+      "company": "Aviva",
+      "role": "Software Engineer — Data",
+      "dates": "Jan 2023 — Aug 2023",
+      "location": "India",
+      "bullets": [
+        "Built policy and claims APIs: 8 FastAPI endpoints and 3 in Node.js, serving 30+ underwriters who previously waited 2–3 hours — responses now under 200ms.",
+        "Replaced a nightly CSV-over-SFTP batch with a GraphQL layer so two downstream reporting systems received claims updates in near real time instead of 24 hours behind.",
+        "Redesigned PostgreSQL (14 tables, 6 views), added composite indexes, and introduced PgBouncer — p95 query time from 800ms to 120ms during peak connection exhaustion.",
+        "Containerized 11 microservices in Docker and deployed on Kubernetes with liveness probes and rolling updates, ending staging/prod config-mismatch crashes."
+      ]
+    },
+    {
+      "company": "Amazon",
       "role": "Software Engineer — ML",
-      "dates": "Jan 2025 — Dec 2025",
-      "location": "Texas, United States",
+      "dates": "Nov 2021 — Dec 2022",
+      "location": "Hyderabad, India",
       "bullets": [
-        "Traced a 17-point precision drop in a production XGBoost fraud classifier to a silent schema change; retrained and restored precision from 0.74 to 0.89.",
-        "Held P99 latency under 300ms through a 3× traffic spike by tuning Kubernetes HPA and batching inference — ~1,200 req/sec, zero dropped predictions.",
-        "Replaced fragile cron jobs with a Spark + Kafka feature pipeline on AWS processing ~8M records daily, killing weekly stale-feature incidents.",
-        "Owned MLflow staging-to-prod gates and Prometheus/Grafana + PagerDuty, cutting incident detection from ~45 minutes to under 5."
+        "Worked on the AWS HoneyCode platform team (Python, Java) — fixed a critical memory leak that caused 3–4 OOM crashes a week and brought uptime to 99.9%.",
+        "Built ETL on AWS (S3 → Glue → Redshift) extracting ~500k usage and billing records per month across 8 source feeds, with deduplication and schema normalization.",
+        "Replaced cron triggers with Lambda on S3 events and 15+ CloudWatch alarms — failure detection from next-morning to under 5 minutes.",
+        "Migrated a single-threaded ingestion script to Kafka (6 topics, 18 partitions) and Spark on a 5-node EMR cluster with DLQs — throughput from ~2k to ~50k records/hour."
       ]
     },
     {
-      "company": "Accenture · Amazon",
-      "role": "Associate Software Engineer",
-      "dates": "Jan 2021 — Dec 2023",
+      "company": "Cyient",
+      "role": "Data Engineer",
+      "dates": "Mar 2019 — Oct 2021",
       "location": "Hyderabad, India",
       "bullets": [
-        "Contributed to Amazon's e-commerce billing and conversion-tracking platform (Java, TensorFlow) serving 5M monthly active shoppers.",
-        "Shipped multi-tier backend modules with Redis caching, serving user-profile reads under 40ms.",
-        "Automated metric extraction in Python (+30% throughput) and tightened SQL/connection pooling by 20%.",
-        "Won the Ace Award for diagnosing a critical infrastructure memory leak, saving 15% in direct cloud operating costs."
-      ]
-    },
-    {
-      "company": "Infosys",
-      "role": "System Engineer",
-      "dates": "Jan 2020 — Dec 2021",
-      "location": "Hyderabad, India",
-      "bullets": [
-        "Supported a healthcare analytics platform with Python and SQL for cleaning and validating medical datasets.",
-        "Built a real-time KPI dashboard and helped stand up GitLab + Docker CI/CD for faster, more reliable releases."
+        "Replaced weekly hand-pasted CSVs with Python ETL from 6 Oracle tables and dumps — ~200k records validated and loaded in under 40 minutes.",
+        "Built 8 Flask REST endpoints for an inspection portal and brought p95 from 4+ seconds to under 200ms at ~2k requests/day with pagination and index tuning.",
+        "Migrated FTP uploads to Azure Data Factory (Oracle → Azure SQL → PostgreSQL) with schema-drift detection so new source columns did not silently break loads.",
+        "Shipped 3 Tableau dashboards for inspection rates, defect trends, and SLA compliance, replacing a Friday spreadsheet that took project managers a full day."
       ]
     }
   ],
   "projects": [
     {
       "featured": true,
-      "title": "GPU Inference Lab",
-      "tag": "Inference · CUDA · vLLM",
-      "description": "A full climb of the GPU inference stack on an RTX 4050 6GB: tokenization, KV cache, CUDA/Triton kernels, AWQ quantization, then vLLM, Ray Serve, and TensorRT-LLM. Measured ~301 tok/s aggregate offline with vLLM 0.23.",
+      "title": "Mini vLLM",
+      "tag": "Inference · CUDA · PyTorch",
+      "description": "Toy LLM serving engine in llm-lab: baseline GPU throughput, torch.compile, and batching on Qwen2.5, then a paged KV-cache allocator and continuous-batching scheduler with CUDA kernels — validated against PyTorch.",
       "points": [
-        "Prefill vs decode, TTFT, ITL, p50/p95/p99, VRAM math",
-        "Triton matmul + fused attention vs cuBLAS",
-        "Serving, guardrails, and a benchmark dashboard"
+        "Paged KV cache and continuous batching to keep the GPU busy",
+        "Baseline benches: single-sequence, compile warmup, batch size, D2D bandwidth",
+        "Outputs checked against a PyTorch reference path"
       ],
-      "stack": [
-        "PyTorch",
-        "CUDA",
-        "Triton",
-        "vLLM",
-        "TensorRT-LLM",
-        "AWQ"
-      ],
-      "href": "https://github.com/KranthiYadavE/GPU_Inference"
+      "stack": ["C++", "CUDA", "PyTorch", "Hugging Face", "Qwen2.5"],
+      "href": "https://github.com/KranthiYadavE/llm-lab"
     },
     {
       "featured": true,
       "title": "Financial Multi-Agent System",
-      "tag": "Agents · RAG · Kafka",
-      "description": "Production-style fintech agents with no paid APIs: text-to-SQL, RAG over policy docs, DLP/PII masking, Kafka routing, Redis caching, and Prometheus/Grafana — all local via Ollama, Qdrant, and Docker.",
+      "tag": "LangGraph · RAG · Kafka",
+      "description": "Production-style fintech agents with no paid APIs: text-to-SQL, RAG over policy docs, DLP/PII masking, Kafka routing, Redis caching, and Prometheus/Grafana — local via Ollama, Qdrant, and Docker.",
       "points": [
         "Orchestrator routes intents onto Kafka topics + DLQ",
         "SELECT-only SQL, row-level security, output masking",
-        "Medallion data (bronze/silver/gold) + K8s manifests"
+        "Medallion data (bronze/silver/gold) + Kubernetes manifests"
       ],
-      "stack": [
-        "FastAPI",
-        "Ollama",
-        "Qdrant",
-        "PostgreSQL",
-        "Kafka",
-        "Redis"
-      ],
+      "stack": ["FastAPI", "Ollama", "Qdrant", "PostgreSQL", "Kafka", "Redis"],
       "href": "https://github.com/KranthiYadavE/Financial_MultiAgent"
+    },
+    {
+      "featured": false,
+      "title": "GPU Inference Lab",
+      "tag": "vLLM · Triton · TensorRT-LLM",
+      "description": "Full climb of the GPU inference stack on an RTX 4050 6GB: tokenization, KV cache, CUDA/Triton kernels, AWQ, then vLLM, Ray Serve, and TensorRT-LLM. Measured ~301 tok/s aggregate offline with vLLM 0.23.",
+      "stack": ["PyTorch", "CUDA", "Triton", "vLLM", "TensorRT-LLM", "AWQ"],
+      "href": "https://github.com/KranthiYadavE/GPU_Inference"
+    },
+    {
+      "featured": false,
+      "title": "Kafka Redis Flow",
+      "tag": "Streaming · Observability",
+      "description": "End-to-end orders pipeline: Kafka → Redis, Prometheus, Grafana, Alertmanager, and Loki. Lab scenario injects 10k transactions, watches lag and backpressure, then scales workers.",
+      "stack": ["Kafka", "Redis", "Prometheus", "Grafana", "Docker", "Kubernetes"],
+      "href": "https://github.com/KranthiYadavE/kafka-redis-flow"
     },
     {
       "featured": false,
       "title": "LLM Panel Interview Simulator",
       "tag": "Multi-agent · Gradio",
       "description": "Three LLM interviewers (Tech, Behavioral, Wildcard) plus a moderator that picks who speaks next from conversation context. Built with GPT-4 and Gradio.",
-      "stack": [
-        "Python",
-        "OpenAI",
-        "Gradio"
-      ],
-      "href": "https://github.com/KranthiYadavE/LLM-Panel-Interview-Simulator",
-      "points": []
+      "stack": ["Python", "OpenAI", "Gradio"],
+      "href": "https://github.com/KranthiYadavE/LLM-Panel-Interview-Simulator"
     },
     {
       "featured": false,
       "title": "EmotiveChat",
       "tag": "NLP · Transformers",
-      "description": "Sentiment-aware chatbot: DistilBERT on GoEmotions for 27 emotion classes, DialoGPT for replies, Gradio UI with live confidence bars. ~52% accuracy across 7 grouped emotions.",
-      "stack": [
-        "PyTorch",
-        "Hugging Face",
-        "Gradio"
-      ],
-      "href": "https://github.com/KranthiYadavE/Chat_bot",
-      "points": []
-    },
-    {
-      "featured": false,
-      "title": "Triton kNN (L2 Distance)",
-      "tag": "GPU kernels",
-      "description": "Custom Triton kernels for tiled L2 distance on ~20K vectors, wired into a PyTorch kNN API, checked against a CPU reference, and benchmarked across batch sizes.",
-      "stack": [
-        "Triton",
-        "PyTorch",
-        "CUDA"
-      ],
-      "href": "https://github.com/KranthiYadavE/GPU_Inference",
-      "points": []
-    },
-    {
-      "featured": false,
-      "title": "System Design Patterns",
-      "tag": "Java · LLD",
-      "description": "Hands-on Java implementations of creational, structural, and behavioral patterns — Factory, Builder, Adapter, Strategy, Observer — for LLD interview prep.",
-      "stack": [
-        "Java",
-        "OOP",
-        "LLD"
-      ],
-      "href": "https://github.com/KranthiYadavE/System_design",
-      "points": []
+      "description": "Sentiment-aware chatbot: DistilBERT on GoEmotions for 27 emotion classes, DialoGPT for replies, Gradio UI with live confidence bars.",
+      "stack": ["PyTorch", "Hugging Face", "Gradio"],
+      "href": "https://github.com/KranthiYadavE/Chat_bot"
     }
   ],
   "skills": [
     {
-      "group": "Inference & GPU",
-      "items": [
-        "vLLM",
-        "TensorRT-LLM",
-        "CUDA",
-        "Triton kernels",
-        "KV cache",
-        "AWQ / GPTQ / QLoRA",
-        "ONNX"
-      ]
+      "group": "Languages",
+      "items": ["Python", "Java", "SQL", "Node.js", "C++"]
     },
     {
-      "group": "LLMs & Agents",
-      "items": [
-        "LangChain",
-        "LlamaIndex",
-        "LangGraph",
-        "RAG",
-        "LoRA / PEFT",
-        "Guardrails",
-        "Ollama"
-      ]
+      "group": "AI / Agents",
+      "items": ["LangGraph", "CrewAI", "MCP", "RAG", "pgvector", "BM25", "RAGAS", "LoRA / PEFT", "PyTorch", "Hugging Face"]
     },
     {
-      "group": "ML & Data",
-      "items": [
-        "PyTorch",
-        "TensorFlow",
-        "XGBoost",
-        "MLflow",
-        "Spark",
-        "Kafka",
-        "scikit-learn"
-      ]
+      "group": "Data & Cloud",
+      "items": ["Kafka", "Spark", "Airflow", "AWS", "Azure", "PostgreSQL", "Redis", "Docker", "Kubernetes"]
     },
     {
-      "group": "Backend & Cloud",
-      "items": [
-        "Python",
-        "C++",
-        "Java",
-        "FastAPI",
-        "PostgreSQL",
-        "Redis",
-        "Docker",
-        "Kubernetes",
-        "AWS"
-      ]
+      "group": "APIs & Ops",
+      "items": ["FastAPI", "Flask", "GraphQL", "Guardrails", "OpenTelemetry", "Prometheus", "Grafana", "PII / DLP"]
     }
   ],
   "education": [
     {
       "school": "Texas A&M University–Corpus Christi",
       "credential": "M.S. Computer Science",
-      "dates": "2023 — 2025"
-    },
-    {
-      "school": "MVSR Engineering College",
-      "credential": "B.E. Information Technology",
-      "dates": "2016 — 2020"
+      "dates": "Aug 2023 — May 2025"
     }
   ],
   "certifications": [

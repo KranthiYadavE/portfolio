@@ -1,4 +1,5 @@
 import { profile } from "@/lib/data";
+import { assetPath } from "@/lib/paths";
 import { ArrowUpRight } from "./Icons";
 
 export function Hero() {
@@ -29,6 +30,14 @@ export function Hero() {
               className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition-opacity hover:opacity-85"
             >
               Email me
+            </a>
+            <a
+              href={assetPath(profile.resume)}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 rounded-full border border-line px-5 py-2.5 text-sm text-foreground transition-colors hover:border-foreground/30"
+            >
+              Resume <ArrowUpRight />
             </a>
             <a
               href={profile.github}
@@ -70,24 +79,24 @@ export function Hero() {
                 <span className="text-acid">$</span>{" "}
                 <span className="text-muted">cat current_role.txt</span>
                 <br />
-                <span className="text-foreground">generative ai engineer @ cloud nest it</span>
+                <span className="text-foreground">ai engineer @ cloud nest it</span>
               </p>
               <p>
                 <span className="text-acid">$</span>{" "}
                 <span className="text-muted">ls specialized/</span>
                 <br />
-                <span className="text-copper">inference/</span>{" "}
+                <span className="text-copper">langgraph/</span>{" "}
                 <span className="text-copper">rag/</span>{" "}
                 <span className="text-copper">agents/</span>
                 <br />
-                <span className="text-copper">gpu-kernels/</span>{" "}
-                <span className="text-copper">k8s/</span>
+                <span className="text-copper">vllm/</span>{" "}
+                <span className="text-copper">aws/</span>
               </p>
               <p>
                 <span className="text-acid">$</span>{" "}
                 <span className="text-muted">status --hiring</span>
                 <br />
-                <span className="text-acid">open · swe / ml engineer</span>
+                <span className="text-acid">open · ai / software engineer</span>
               </p>
               <p className="text-faint">
                 <span className="text-acid">▌</span>
